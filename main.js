@@ -13,7 +13,7 @@ var deleteValueSearch = document.querySelector('.deleteValueSearch')
 
 deleteValueSearch.addEventListener('click', function(e) {
     console.log(e.target)
-    search.value = null
+    search.value = ''
 })
 
 
@@ -49,7 +49,6 @@ async function changeWeatherUI(input) {
         wind.innerText = data.wind.speed + '(m/s)'
         humidity.innerHTML = data.main.humidity + '(%)'
         time.innerText = startTime()
-        console.log(data)
     }
 
     else {
@@ -92,12 +91,3 @@ function startTime() {
     // Auto refeshing time
     setTimeout(() => startTime(), 1000)
 }
-
-
-window.addEventListener('scroll', () => {
-    if (window.innerHeight + window.pageYOffset >= document.body.offsetHeight) {
-      footerUp.style.bottom = 0;
-    } else{
-      footerUp.style.bottom = '-22rem';
-    }
-  });
