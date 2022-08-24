@@ -30,7 +30,8 @@ body {
 
 .search {
     width: 100%;
-    padding: 12px;
+    height: 50px;
+    padding: 8px 16px;
     border: none;
     outline: none;
     border-radius: 0 12px;
@@ -39,11 +40,20 @@ body {
     transition: 0.5s;
     font-size: 14px;
     margin-bottom: 30px;
+    position: relative;
 }
 
 .search:focus {
     border-radius: 12px 0;
     background: rgb(255, 255, 255, 0.95);
+}
+
+.deleteValueSearch {
+    position: absolute;
+    top: 11%;
+    right: 34%;
+    padding: 8px;
+    cursor: pointer;
 }
 
 .content {
@@ -124,6 +134,10 @@ body {
     background: url(./weather/warm.png) no-repeat center/cover;
 }
 
+.warm #weather .time {
+    color: white;
+}
+
 .hot {
     background: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.2)), url(./weather/hot2.png) no-repeat center/cover;
 }
@@ -158,5 +172,7 @@ body {
 
 /* PC: width >= 1024px */
 @media only screen and (max-width:739px) {
-
+    body {
+        margin-bottom: 100px;
+    }
 } 

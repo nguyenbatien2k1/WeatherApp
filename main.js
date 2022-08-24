@@ -9,6 +9,13 @@ var humidity = document.querySelector('.humidity span')
 var content = document.querySelector('.content')
 var time = document.querySelector('.time')
 
+var deleteValueSearch = document.querySelector('.deleteValueSearch')
+
+deleteValueSearch.addEventListener('click', function(e) {
+    console.log(e.target)
+    search.value = null
+})
+
 
 async function changeWeatherUI(input) {
     let apiURL = `https://api.openweathermap.org/data/2.5/weather?q=${input}&units=metric&appid=52e16291abc9acc979841a1e8ff2f8ab&lang=vi`
@@ -54,7 +61,7 @@ changeWeatherUI('ha noi')
 
 search.addEventListener('keypress', function (e) {
     let input = search.value.trim()
-    if (e.code === 'Enter') {
+    if (e.which === 13) {
         changeWeatherUI(input)
     }
 })
@@ -85,3 +92,12 @@ function startTime() {
     // Auto refeshing time
     setTimeout(() => startTime(), 1000)
 }
+
+
+window.addEventListener('scroll', () => {
+    if (window.innerHeight + window.pageYOffset >= document.body.offsetHeight) {
+      footerUp.style.bottom = 0;
+    } else{
+      footerUp.style.bottom = '-22rem';
+    }
+  });
